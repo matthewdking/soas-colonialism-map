@@ -1,14 +1,14 @@
 import * as React from "react";
+import { RouteProps } from "react-router";
 import { fetchLocationById } from "./../services/database";
 import { PointOfInterest } from "./Map";
 
-class Location extends React.Component {
+class Location extends React.Component<RouteProps> {
   state = {
     location: {}
   };
 
   componentDidMount = () => {
-    console.log(this.props);
     if (this.props.location.data) {
       this.setState({ location: this.props.location.data });
     } else {
