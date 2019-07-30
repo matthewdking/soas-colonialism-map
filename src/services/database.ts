@@ -14,15 +14,23 @@ export const queryAirtable = (id?: string) => {
 };
 
 export const fetchAllLocations = (): Promise<PointOfInterest[]> => {
-  return queryAirtable().then(res => {
-    return res.records
-      .filter(r => r.fields.title !== undefined)
-      .map((r: AirTableRecord) => ({
-        ...r.fields,
-        createdTime: r.createdTime,
-        id: r.id
-      }));
-  });
+  return fetch("http://localhost:9000/queryAirtable", {
+    mode: "no-cors",
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    }
+  })
+    .then(res => res.json())
+    .then(records => {
+      console.log("res", records);
+      return records
+        .filter(r => r.fields.title !== undefined)
+        .map((r: AirTableRecord) => ({
+          ...r.fields,
+          createdTime: r.createdTime,
+          id: r.id
+        }));
+    });
 };
 
 export const fetchLocationById = (id: string): Promise<PointOfInterest> => {
