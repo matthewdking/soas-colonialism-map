@@ -3,8 +3,8 @@ import * as Leaflet from "leaflet";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-// import * as LeafShadow from "../assets/leaf-shadow.png";
-// import * as TopHat from "../assets/top-hat.png";
+import * as LeafShadow from "../assets/leaf-shadow.png";
+import * as TopHat from "../assets/top-hat.png";
 import { fetchAllLocations } from "./../services/database";
 
 const StyledDiv = styled.div`
@@ -63,7 +63,7 @@ class ColonialismMap extends React.Component {
         <Marker
           position={position}
           key={poi.id}
-          // icon={generateIcon(TopHat, LeafShadow)}
+          icon={generateIcon(TopHat, LeafShadow)}
         >
           <Popup>
             {poi.title}
