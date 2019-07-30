@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Router from "./Router";
 
 const StyledApp = styled.main`
-  width: 500px;
+  width: 100%;
   height: 300px;
 `;
 
