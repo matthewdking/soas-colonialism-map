@@ -3,8 +3,7 @@ import * as Leaflet from "leaflet";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import * as LeafShadow from "../assets/leaf-shadow.png";
-import * as TopHat from "../assets/top-hat.png";
+import TopHat from "../assets/top-hat.png";
 import { fetchAllLocations } from "./../services/database";
 
 const StyledDiv = styled.div`
@@ -12,16 +11,17 @@ const StyledDiv = styled.div`
   height: 100%;
 `;
 
-const generateIcon = (iconUrl: string, shadowUrl: string) =>
-  Leaflet.icon({
+const generateIcon = (iconUrl: string, shadowUrl?: string) => {
+  return Leaflet.icon({
     iconUrl,
     iconSize: [20, 20],
     iconAnchor: [10, 10],
     popupAnchor: [0, -10]
-    // shadowUrl,
+    // shadowUrl
     // shadowSize: [68, 95],
     // shadowAnchor: [22, 94]
   });
+};
 
 const startPosition: Leaflet.LatLngExpression = [51.505, -0.09];
 
@@ -60,11 +60,7 @@ class ColonialismMap extends React.Component {
       ];
 
       return (
-        <Marker
-          position={position}
-          key={poi.id}
-          icon={generateIcon(TopHat, LeafShadow)}
-        >
+        <Marker position={position} key={poi.id} icon={generateIcon(TopHat)}>
           <Popup>
             {poi.title}
             <br />
@@ -72,6 +68,7 @@ class ColonialismMap extends React.Component {
             <Link
               to={{ pathname: `/location/${poi.id}`, data: poi }}
               state={{ name: "Phil" }}
+              target="_blank"
             >
               read more
             </Link>

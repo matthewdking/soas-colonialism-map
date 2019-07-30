@@ -25,8 +25,8 @@ class Location extends React.Component<
   render() {
     return (
       <>
-        <h2>{this.state.location.title}</h2>
-        <p>{this.state.location.text}</p>
+        <h2>{this.state.location ? this.state.location.title : ""}</h2>
+        <p>{this.state.location ? this.state.location.text : ""}</p>
       </>
     );
   }
