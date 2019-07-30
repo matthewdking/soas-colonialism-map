@@ -60,7 +60,7 @@ class ColonialismMap extends React.Component {
       ];
 
       return (
-        <Marker position={position} key={poi.id} icon={generateIcon(TopHat)}>
+        <Marker position={position} key={poi.id}>
           <Popup>
             {poi.title}
             <br />

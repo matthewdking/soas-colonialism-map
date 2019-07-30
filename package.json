@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:app": "tsc  --noEmit --watch & parcel public/index.html",
+    "start:app": "NODE_ENV=development tsc  --noEmit --watch & parcel public/index.html",
     "start:lambda": "netlify-lambda serve src/lambda",
     "build:app": "parcel build public/index.html",
     "build:lambda": "netlify-lambda build src/lambda"
