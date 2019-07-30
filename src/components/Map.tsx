@@ -95,7 +95,7 @@ class ColonialismMap extends React.Component {
         >
           <TileLayer
             id="mapbox.streets"
-            url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=" // TODO: mapbox access token
+            url={`https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=${process.env.MAPBOX_TOKEN}`} // TODO: mapbox access token
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
           {this.makeMarkers(this.state.pointsOfInterest)}

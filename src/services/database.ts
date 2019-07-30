@@ -6,7 +6,7 @@ export const queryAirtable = (id?: string) => {
   return fetch(url, {
     method: "GET",
     headers: {
-      Authorization: "Bearer" // TODO: airtable key
+      Authorization: `Bearer ${process.env.AIRTABLE_KEY}`
     }
   })
     .then(res => res.json())

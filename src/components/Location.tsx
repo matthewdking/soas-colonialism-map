@@ -3,10 +3,14 @@ import { RouteProps } from "react-router";
 import { fetchLocationById } from "./../services/database";
 import { PointOfInterest } from "./Map";
 
-class Location extends React.Component<RouteProps> {
-  state = {
-    location: {}
-  };
+class Location extends React.Component<
+  RouteProps,
+  { location?: PointOfInterest }
+> {
+  constructor(props: RouteProps) {
+    super(props);
+    this.state = {};
+  }
 
   componentDidMount = () => {
     if (this.props.location.data) {
