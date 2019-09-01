@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import TopHat from "../assets/top-hat.png";
 import { fetchAllLocations } from "./../services/database";
+import console = require("console");
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -62,19 +63,31 @@ class ColonialismMap extends React.Component {
       return (
         <Marker position={position} key={poi.id}>
           <Popup>
-            {poi.title}
-            <br />
-            {poi.text.substring(0, 200)}...
-            <Link
-              to={{ pathname: `/location/${poi.id}`, data: poi }}
-              state={{ name: "Phil" }}
-              target="_blank"
-            >
-              read more
-            </Link>
-            {poi.image && (
-              <img src={poi.image} alt={poi.title} style={{ width: "100%" }} />
-            )}
+            <div className="card">
+              <div className="card-image">
+                {poi.image && (
+                  <img
+                    src={poi.image}
+                    alt={poi.title}
+                    style={{ width: "100%" }}
+                  />
+                )}
+                <span className="card-title">{poi.title}</span>
+              </div>
+              <div className="card-content">
+                <p>{poi.text.substring(0, 200)}...</p>
+              </div>
+
+              <div className="card-action">
+                <Link
+                  to={{ pathname: `/location/${poi.id}`, data: poi }}
+                  state={{ name: "Phil" }}
+                  target="_blank"
+                >
+                  Read more{" "}
+                </Link>
+              </div>
+            </div>
           </Popup>
         </Marker>
       );
