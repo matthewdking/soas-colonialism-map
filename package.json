@@ -24,6 +24,7 @@
   "homepage": "https://github.com/matthewdking/soas-colonialism-map#readme",
   "dependencies": {
     "dotenv": "^8.0.0",
+    "encoding": "^0.1.12",
     "leaflet": "^1.5.1",
     "netlify-lambda": "^1.4.13",
     "node-fetch": "^2.6.0",
