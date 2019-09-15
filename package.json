@@ -8,7 +8,7 @@
     "start:app": "NODE_ENV=development tsc  --noEmit --watch & parcel public/index.html",
     "start:lambda": "netlify-lambda serve src/lambda",
     "build": "npm run build:app & npm run build:lambda",
-    "build:app": "NODE_ENV=development npm install parcel build public/index.html",
+    "build:app": "parcel build public/index.html",
     "build:lambda": "netlify-lambda build src/lambda"
   },
   "repository": {
