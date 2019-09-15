@@ -38,7 +38,7 @@ export interface PointOfInterest {
 
 export interface AirTableRecord {
   id: string;
-  fields: PointOfInterest[];
+  fields: PointOfInterest;
   createdTime: string;
 }
 

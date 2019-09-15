@@ -1,15 +1,15 @@
 import { AirTableRecord, PointOfInterest } from "./../components/Map";
+const url =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:9000/queryAirtable"
+    : "/.netlify/functions/queryAirtable";
 
 export const fetchAllLocations = (): Promise<PointOfInterest[]> => {
-  const url =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:9000/queryAirtable"
-      : "/.netlify/functions/queryAirtable";
   return fetch(url)
     .then(res => res.json())
     .then(({ records }) => {
       return records
-        .filter(r => r.fields.title !== undefined)
+        .filter((r: AirTableRecord) => r.fields.title !== undefined)
         .map((r: AirTableRecord) => ({
           ...r.fields,
           createdTime: r.createdTime,
@@ -19,10 +19,6 @@ export const fetchAllLocations = (): Promise<PointOfInterest[]> => {
 };
 
 export const fetchLocationById = (id: string): Promise<PointOfInterest> => {
-  const url =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:9000/queryAirtable"
-      : "/.netlify/functions/queryAirtable";
   return fetch(url + "?id=" + id)
     .then(res => res.json())
     .then(res => {
