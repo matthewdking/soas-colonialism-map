@@ -51,6 +51,9 @@ class Location extends React.Component<
         {this.state.location && (
           <>
             <h2>{this.state.location.title}</h2>
+            <h4>
+              <i>{this.state.location.author}</i>
+            </h4>
 
             <MainImage
               src={this.state.location.image}

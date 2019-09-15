@@ -39,6 +39,7 @@ export interface PointOfInterest {
   image?: string;
   createdTime: string;
   id: string;
+  author?: string;
 }
 
 export interface AirTableRecord {
@@ -80,6 +81,9 @@ class ColonialismMap extends React.Component {
                 <span className="card-title">{poi.title}</span>
               </div>
               <Museo500Div className="card-content">
+                <p>
+                  <b>{poi.author}</b>
+                </p>
                 <p>{poi.text.substring(0, 200).replace(/<[^>]*>?/gm, "")}...</p>
               </Museo500Div>
 
