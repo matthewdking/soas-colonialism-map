@@ -24,7 +24,6 @@ const generateIcon = (iconUrl: string, shadowUrl?: string) => {
     iconSize: [20, 20],
     iconAnchor: [10, 10],
     popupAnchor: [0, -10]
-    // shadowUrl
     // shadowSize: [68, 95],
     // shadowAnchor: [22, 94]
   });
@@ -67,7 +66,7 @@ class ColonialismMap extends React.Component {
       ];
 
       return (
-        <Marker position={position} key={poi.id}>
+        <Marker position={position} key={poi.id} icon={generateIcon(TopHat)}>
           <Popup>
             <div className="card">
               <div className="card-image">
