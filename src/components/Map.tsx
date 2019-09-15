@@ -7,9 +7,15 @@ import TopHat from "../assets/top-hat.png";
 import { fetchAllLocations } from "./../services/database";
 import console = require("console");
 
-const StyledDiv = styled.div`
+const FullSizeDiv = styled.div`
   width: 100%;
   height: 100%;
+`;
+
+export const Museo500Div = styled.div`
+  font-family: MuseoSans-500;
+  font-weight: normal;
+  font-style: normal;
 `;
 
 const generateIcon = (iconUrl: string, shadowUrl?: string) => {
@@ -74,9 +80,9 @@ class ColonialismMap extends React.Component {
                 )}
                 <span className="card-title">{poi.title}</span>
               </div>
-              <div className="card-content">
+              <Museo500Div className="card-content">
                 <p>{poi.text.substring(0, 200)}...</p>
-              </div>
+              </Museo500Div>
 
               <div className="card-action">
                 <Link
@@ -96,7 +102,7 @@ class ColonialismMap extends React.Component {
 
   render() {
     return (
-      <StyledDiv>
+      <FullSizeDiv>
         <Map
           center={startPosition}
           zoom={10}
@@ -110,7 +116,7 @@ class ColonialismMap extends React.Component {
           />
           {this.makeMarkers(this.state.pointsOfInterest)}
         </Map>
-      </StyledDiv>
+      </FullSizeDiv>
     );
   }
 }

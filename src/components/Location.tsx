@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RouteProps } from "react-router";
 import { fetchLocationById } from "./../services/database";
-import { PointOfInterest } from "./Map";
+import { PointOfInterest, Museo500Div } from "./Map";
 
 class Location extends React.Component<
   RouteProps,
@@ -24,10 +24,10 @@ class Location extends React.Component<
 
   render() {
     return (
-      <>
+      <Museo500Div>
         <h2>{this.state.location ? this.state.location.title : ""}</h2>
         <p>{this.state.location ? this.state.location.text : ""}</p>
-      </>
+      </Museo500Div>
     );
   }
 }
