@@ -68,7 +68,7 @@ class ColonialismMap extends React.Component {
       return (
         <Marker position={position} key={poi.id} icon={generateIcon(TopHat)}>
           <Popup>
-            <div className="card">
+            <Museo500Div className="card">
               <div className="card-image">
                 {poi.image && (
                   <img
@@ -80,7 +80,7 @@ class ColonialismMap extends React.Component {
                 <span className="card-title">{poi.title}</span>
               </div>
               <Museo500Div className="card-content">
-                <p>{poi.text.substring(0, 200)}...</p>
+                <p>{poi.text.substring(0, 200).replace(/<[^>]*>?/gm, "")}...</p>
               </Museo500Div>
 
               <div className="card-action">
@@ -92,7 +92,7 @@ class ColonialismMap extends React.Component {
                   Read more{" "}
                 </Link>
               </div>
-            </div>
+            </Museo500Div>
           </Popup>
         </Marker>
       );
