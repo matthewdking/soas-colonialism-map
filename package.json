@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run start:app & npm run start:lambda",
+    "start": "npm run start:app && npm run start:lambda",
     "start:app": "NODE_ENV=development tsc  --noEmit --watch & parcel public/index.html",
     "start:lambda": "netlify-lambda serve src/lambda",
-    "build": "npm run build:app & npm run build:lambda",
+    "build": "npm run build:app && npm run build:lambda",
     "build:app": "parcel build public/index.html",
     "build:lambda": "netlify-lambda build src/lambda"
   },
