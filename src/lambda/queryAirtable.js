@@ -4,6 +4,7 @@ const { AIRTABLE_API_KEY } = process.env;
 
 exports.handler = (event, context, callback) => {
   const { id } = event.queryStringParameters;
+  console.log("in airtable land");
   const baseUrl = "https://api.airtable.com/v0/appu1gS4L2wLClmLo/Table%201";
   const url = id ? `${baseUrl}/${id}` : baseUrl;
   console.log("hello", url, AIRTABLE_API_KEY);
