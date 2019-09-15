@@ -64,3 +64,4 @@ dist/
 .cache/
 # Local Netlify folder
 .netlify
+functions/

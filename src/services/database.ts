@@ -4,7 +4,7 @@ export const fetchAllLocations = (): Promise<PointOfInterest[]> => {
   const url =
     process.env.NODE_ENV === "development"
       ? "http://localhost:9000/queryAirtable"
-      : "./netlify/functions/queryAirtable";
+      : "/.netlify/functions/queryAirtable";
   return fetch(url)
     .then(res => res.json())
     .then(({ records }) => {
@@ -22,7 +22,7 @@ export const fetchLocationById = (id: string): Promise<PointOfInterest> => {
   const url =
     process.env.NODE_ENV === "development"
       ? "http://localhost:9000/queryAirtable"
-      : "./netlify/functions/queryAirtable";
+      : "/.netlify/functions/queryAirtable";
   return fetch(url + "?id=" + id)
     .then(res => res.json())
     .then(res => {
